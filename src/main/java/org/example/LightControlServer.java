@@ -11,9 +11,14 @@ public class LightControlServer {
     // Cổng (Port) mà Server sẽ lắng nghe. Phải giống với cổng mà Client Android kết nối tới.
     private static final int PORT = 12345;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // Khai báo ServerSocket (Máy chủ)
         ServerSocket serverSocket = null;
+        // Nếu bạn muốn buộc Server chỉ lắng nghe trên 10.10.10.10
+        String specificIp = "10.10.10.10";
+        InetAddress bindAddr = InetAddress.getByName(specificIp);
+        // Tạo ServerSocket chỉ lắng nghe trên địa chỉ IP này
+        serverSocket = new ServerSocket(PORT, 50, bindAddr);
 
         try {
             // 1. Tạo ServerSocket và gắn vào cổng đã định nghĩa
