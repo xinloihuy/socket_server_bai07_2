@@ -1,6 +1,10 @@
 # STEP 1: Sử dụng một base image có chứa Java Development Kit (JDK) để biên dịch code.
 # OpenJDK 17 là một lựa chọn phổ biến và ổn định.
-FROM openjdk:17-jdk-slim AS builder
+# Old (no longer available)
+# FROM openjdk:17-jdk-slim
+
+# New (maintained alternative)
+FROM eclipse-temurin:17-jdk
 
 # Thiết lập thư mục làm việc bên trong container
 WORKDIR /app
